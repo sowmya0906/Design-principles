@@ -1,10 +1,41 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-class Calculator
+import java.util.*;
+interface operations
 {
+	public int add(int a,int b);
+	public int subtract(int a,int b);
+	public int divide(int a,int b);
+	public int multiply(int a,int b);
+	public int modulus(int a,int b);
+}
+class Calculator implements operations
+{
+public int add(int a,int b) {
+			return (a+b);
+		}
+		
+		// Function to Multiply 2 Numbers
+		public int multiply(int a,int b) {
+			return (a*b);
+		}
+		
+		// Function to Divide 2 Numbers
+		public int divide(int a,int b) {
+			return (a/b);
+		}
+		// Function to Divide 2 Numbers
+		public int subtract(int a,int b) {
+					return (a-b);
+				}
+				// Function to Divide 2 Numbers
+	     public int modulus(int a,int b) {
+					return (a%b);
+				}
     public static void main(String[] args) {
       Scanner sc=new Scanner(System.in);
+      Calculator cc = new Calculator();
       System.out.println("Enter the two numbers");
       int a=sc.nextInt();
       int b=sc.nextInt();
@@ -12,29 +43,23 @@ class Calculator
       System.out.println("1.Addition");
       System.out.println("2.Subtraction");
       System.out.println("3.Multiplication");
-      System.out.println("4.Division\n enter your choice:");
+      System.out.println("4.Division\n5.Modulo\n enter your choice:");
       int c=sc.nextInt();
-      int z=0;
-      if(c==1){
-       z=a+b;
-       System.out.println("addition of "+a+" and "+b+" is "+z);
-            }
-       else if(c==2){
-       z=a-b;
-       System.out.println("subtratcion of "+a+" and "+b+" is "+z); 
-            }
-        else if(c==3){
-            z=a*b;
-             System.out.println("Product of "+a+" and "+b+" is "+z); 
-               }
-          else if(c==4)
-                      {
-                         z=a/b;
-                   System.out.println("Division of "+a+" and "+b+" is "+z);   
-                 }    
-              else{
-System.out.println("No operation");
-                 }                        
-      
+     while(c!=6)
+		{
+			System.out.println("choose any operation");
+			 n=sc.nextInt();
+			switch(n)
+			{
+			case 1:System.out.println("The Addition of Two numbers "+a+" and "+b+" is "+cc.add(a,b));break;
+			case 2:System.out.println("The Subtraction of Two numbers "+a+" and "+b+" is "+cc.subtract(a,b));break;
+			case 3:System.out.println("The Multiplication of Two numbers "+a+" and "+b+" is "+cc.multiply(a,b));break;
+			case 4:System.out.println("The Division of Two numbers "+a+" and "+b+" is "+cc.divide(a,b));break;
+			case 5:System.out.println("The Modulus of Two numbers "+a+" and "+b+" is "+cc.modulus(a,b));break;
+			case 6:System.exit(0);
+			default:System.exit(0);
+			}
+		}
+        sc.close();                             
     }
 }
